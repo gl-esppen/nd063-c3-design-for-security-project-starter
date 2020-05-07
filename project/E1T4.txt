@@ -5,6 +5,6 @@ The "Web Service" instance shouldn't have access to the S3 resource using direct
 The best approach in this case is use a AWS Role to permit access to the S3 bucket with the free recipes only.
 
 # Poor practice 2
-Both instances get the same IAM Policy with fill access to the S3 buckets.
+Both instances get the same IAM Policy with full access to the S3 buckets.
 With this both servers can access any bucket in the AWS and get access to the secret recipes.
 One of the best practices here would be change the IAM policy to only conceed read-only access to the free recipes bucket.
