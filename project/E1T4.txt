@@ -1,9 +1,10 @@
 Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security.  Include justification.
 
 # Poor practice 1
-The "Web Service" instance shouldn't have access to the S3 resource. Since this server is in a public subnet it's much more easier to stole information.
+The "Web Service" instance shouldn't have access to the S3 resource using directly the API keys, since this server is in a public subnet it's much more easier to stole information.
+The best approach in this case is use a AWS Role to permit access to the S3 bucket with the free recipes only.
 
 # Poor practice 2
-The API keys are stored in the instance.
-In this case both instances are in a public subnet, which makes much more easier to stole information. 
-However, even in a private subnet, is not recommended to store any keys or sensitive data inside a server.
+Both instances get the same IAM Policy with fill access to the S3 buckets.
+With this both servers can access any bucket in the AWS and get access to the secret recipes.
+One of the best practices here would be change the IAM policy to only conceed read-only access to the free recipes bucket.

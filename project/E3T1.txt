@@ -1,5 +1,5 @@
 # Describe GuardDuty findings that were detected related to the brute force attack
-Guard Duty identifies that an instance is being brute forced by other resource via SSH connection.
+Guard Duty identifies that an instance is being brute forced by other resource via SSH connection. This is possible due the VPC Flow Logs.
 A "High Severity" record is emitted with the attacker and attacked resource, including IP, host, time and port.
 Due the internal logs, it can also provide information that one of the account resources is trying to do an unauthorized connection.
 
