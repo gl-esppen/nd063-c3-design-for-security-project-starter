@@ -1,0 +1,20 @@
+Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
+
+- Connection ports (FTP, UDP, TCP, RDP) very permisive, using 0.0.0.0/0 or permiting All Traffic.
+- All connection and open to the world
+- The ACL rule is very permissive, allowing All Traffic for all subnets. Also using the top priority.
+- All subnets are routed to internet gateway
+- The S3 bucket with secret recipes are not encrypted
+- Some objects in the restrict S3 bucket may be public
+- Is possible to access the root user in the instances
+
+Bonus - provide recommendations on how to remediate the vulnerabilities.
+- Restrict incoming access to only permited resources. For example, the web server doesn't need UDP or RDP connections.
+- Only web application can have access to the world, the application server needs to be private and with limited connection access
+- Create private subnets and private route tables
+- The attack server needs to be on a private subnet, permiting only access by NAT gateway
+- Update de Security Groups
+- Update the ACLs with restrict rules and choosing which subnets are going to have least privileges.
+- Encrypt the S3 bucket with secret recipes
+- Make de restrict S3 private
+- Create a patch for each instance to only restric users to access the root user.

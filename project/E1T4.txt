@@ -1,0 +1,9 @@
+Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security.  Include justification.
+
+# Poor practice 1
+The "Web Service" instance shouldn't have access to the S3 resource. Since this server is in a public subnet it's much more easier to stole information.
+
+# Poor practice 2
+The API keys are stored in the instance.
+In this case both instances are in a public subnet, which makes much more easier to stole information. 
+However, even in a private subnet, is not recommended to store any keys or sensitive data inside a server.

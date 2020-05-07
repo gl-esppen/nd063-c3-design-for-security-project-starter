@@ -1,0 +1,9 @@
+# Identify 2-3 changes that can be made to our environment to prevent an ssh brute force attack from the internet.
+- Implement a WAF with the OWASP 10 rules
+- Doesn't allow connection to all IP addresses in port 22 (SSH)
+- Allow only port connection via port 22 to necessary instances
+
+# Neither instance should have had access to the secret recipes bucket, in the even that instance API credentials were compromised how could we have prevented access to sensitive data.
+A secure way to grant access to the S3 bucket public recipes from the Web Server is attach a AWS Role in the instance for that. With this, the instance will only have the permited access to the files and won't see the secret_recipes.txt
+Another way would be configure on the S3 bucket a policy to only permit access from specific resources, such the EC2 web server.
+However, the AWS Role solution is better solution because the management and version control.

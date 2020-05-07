@@ -1,0 +1,22 @@
+
+# What additional architectural change can be made to reduce the internet facing attack surface of the web application instance.
+- Implement WAF in front of the Load Balancer, using the OWASP 10 rules
+- Update Security Groups rules allowing access only for the necessary resources
+- Create a VPC with private subnets
+- Make sure the S3 buckets have data encrypted
+- Update the ACL rules, applying the least permition.
+- Create a VPC endpoint with the S3 bucket
+
+
+# Assuming the IAM permissions for the S3 bucket are still insecure, would creating VPC private endpoints for S3 prevent the unauthorized access to the secrets bucket.
+VPC endpoint is not a guarantee that unauthorized access is being made, since the IAM permissions are the main rule for the AWS most resources.
+Nonetheless the recommendation is if the IAM role is insecure, it need to be revised.
+
+
+# Will applying default encryption setting to the s3 buckets encrypt the data that already exists?
+No, the file would still be decrypt. To apply the change made in the Properties of the bucket is necessary to reupload the file.
+However the best aproach in this case would be create the bucket and already set the encrypt property.
+
+# What would happen if the original cloud formation templates are applied to this environment.
+It would replace all changes made after the first apply.
+The best solution is change the Cloudformation file with the security optimizations or guarantee the infrastructure code is only deployed after security validation.

@@ -1,0 +1,10 @@
+# Describe GuardDuty findings that were detected related to the brute force attack
+Guard Duty identifies that an instance is being brute forced by other resource via SSH connection.
+A "High Severity" record is emitted with the attacker and attacked resource, including IP, host, time and port.
+Due the internal logs, it can also provide information that one of the account resources is trying to do an unauthorized connection.
+
+
+# Research the AWS Guard Duty documentation page and explain how GuardDuty may have detected this attack - i.e. what was its source of information.
+According to the AWS documentation, AWS Guard Duty uses VPC Flow Logs, AWS Cloudtrail logs , DNS logs, threat intelligence feeds and so on, to identify and monitor potentially unauthorized and malicious activity.
+They also are able to detect if a EC2 instance is compromised by malwares or mining bitcoin.
+Guard Duty, based on logs, can access the account behavior to detect unauthorized deployments, unusual API calls and so on.
