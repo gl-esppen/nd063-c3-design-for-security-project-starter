@@ -1,13 +1,58 @@
 # Identify tools that will allow you to do the following:
 
 ## Scan infrastructure as code templates
+Cloudformation:
+    - Cloudsploit
+    - Cfripper
 
-### Example vulnerability
+Terraform:
+    - OPA/Regula
+    - Terrascan
+    - Chef inspec
+
+### Examples vulnerability
+- Configuration of very permissive security groups
+- Compromise of the resources already setted
+- Change the encryption of a database
+- Wrong assignment to AWS Role on a resource
+
 
 ##Scan AMI’s or containers for OS vulnerabilities
+Open Source:
+    - Clair
+    - Anchore
+    - Trivy
+
+Commercial:
+    - aquasec
+    - sysdig
+    - twistlock
 
 ### Example vulnerability
+- Keys being stored in OS
+- Libraries outdates vulnerabilities
+- OS outated version vulnerabilities
+- Permissive system configurations for outside connections
+
 
 ##Scan an AWS environment for cloud configuration vulnerabilities
+AWS Native:
+    - AWS Config
+    - AWS Inspect
+    - AWS Security Hub
+    - Cloudwatch alarms
+    - Cloudtrail
+    - AWS Guard Duty
+
+Other SIEM Tools:
+    - Splunk
+    - Sumologic
+    - Lacework
 
 ### Example vulnerability
+- Account without MFA policies
+- Very permissive IAM Policies or Roles
+- Root account being used unnecessarily for transactions or calls.
+- Credentials without rotation policies
+- Poor password rules
+- Not having network activities being logged
